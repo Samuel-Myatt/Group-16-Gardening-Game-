@@ -371,6 +371,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1879240343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7427464382222528332, guid: d530a7f69f5c24d4ea81cf48610977d6, type: 3}
+  m_PrefabInstance: {fileID: 7427464381803483512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1879240344
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879240343}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.054626644, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8958777, y: 1.611819}
+  m_EdgeRadius: 0
 --- !u!1 &1887107508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6523222708148260014, guid: 1b22fc267b8338140a2baecd73850622, type: 3}
@@ -409,9 +440,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4019462037468882284, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019462037468882284, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4019462037468882285, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
       propertyPath: m_Name
       value: 'Flower '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019462037468882287, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9781494
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019462037468882287, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.010925293
       objectReference: {fileID: 0}
     - target: {fileID: 4019462037468882321, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
       propertyPath: m_RootOrder
@@ -523,6 +570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7427464381771342126, guid: d530a7f69f5c24d4ea81cf48610977d6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7427464382222528332, guid: d530a7f69f5c24d4ea81cf48610977d6, type: 3}
       propertyPath: m_Name
       value: 'Player '

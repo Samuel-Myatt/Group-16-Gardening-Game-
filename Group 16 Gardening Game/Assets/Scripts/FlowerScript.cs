@@ -48,10 +48,13 @@ public class FlowerScript : MonoBehaviour
         {
             FlowerTime -= 1;
         }
-        
-
     }
 
+
+    public void Rejuvinate()
+    {
+        FlowerTime += 5;
+    }
 }
 
 

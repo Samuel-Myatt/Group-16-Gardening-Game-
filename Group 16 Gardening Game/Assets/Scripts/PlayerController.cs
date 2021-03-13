@@ -16,11 +16,21 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-    }
 
+       
+    }
     void FixedUpdate()
     {
         // MOVE PLAYERS
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            
+        }
+    }
+
 }
