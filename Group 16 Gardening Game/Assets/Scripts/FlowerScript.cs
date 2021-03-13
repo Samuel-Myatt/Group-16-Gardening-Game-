@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlowerScript : MonoBehaviour
 {
 
-    public int FlowerTime;
+    int FlowerTime = 100;
 
     // Update is called once per frame
     void Update()
@@ -13,21 +13,26 @@ public class FlowerScript : MonoBehaviour
         switch (FlowerTime)
         {
             case 100:
+                Debug.Log("Normal Flower");
                 break;
 
             case 50:
+                Debug.Log("Warning Flower");
                 break;
 
             case 10:
+                Debug.Log("Critical Flower");
                 break;
 
             case 0:
+                Debug.Log("Dead Flower");
                 break;
         }
     }
 
     void FixedUpdate()
     {
+        FlowerTime -= 1;
 
     }
 
@@ -66,3 +71,6 @@ public class FlowerScript : MonoBehaviour
 //Code for when the player interacts with the flower 
 
 //Increase flower time by the amount the button is held by player (Flowertime * TimeDelta?? While player holds button) 
+
+
+//Display Flower Time as an UI Element while we wait for art assets 
