@@ -76,8 +76,11 @@ public class FlowerScript : MonoBehaviour
 
 //dead state when 0 
 
-
 //Unsure if should tick every frame (Doesn't really matter) 
+
+
+
+
 
 
 //Fixed Update
@@ -91,5 +94,11 @@ public class FlowerScript : MonoBehaviour
 
 //Increase flower time by the amount the button is held by player (Flowertime * TimeDelta?? While player holds button) 
 
+//New Function which can be called in Player Script which just ticks up ther flower count 
 
 //Display Flower Time as an UI Element while we wait for art assets 
+
+
+//TO DO LATER 
+
+//(Make Flower Count down in seperate function)
