@@ -5,7 +5,15 @@ using UnityEngine;
 public class FlowerScript : MonoBehaviour
 {
 
-    int FlowerTime = 100;
+    int FlowerTime = 101;
+
+    SpriteRenderer m_SpriteRenderer;
+
+    void Start()
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+   
 
     // Update is called once per frame
     void Update()
@@ -14,25 +22,33 @@ public class FlowerScript : MonoBehaviour
         {
             case 100:
                 Debug.Log("Normal Flower");
+                m_SpriteRenderer.color = Color.green;
                 break;
 
             case 50:
                 Debug.Log("Warning Flower");
+                m_SpriteRenderer.color = Color.blue;
                 break;
 
-            case 10:
+            case 30:
                 Debug.Log("Critical Flower");
+                m_SpriteRenderer.color = Color.yellow;
                 break;
 
             case 0:
                 Debug.Log("Dead Flower");
+                m_SpriteRenderer.color = Color.black;
                 break;
         }
     }
 
     void FixedUpdate()
     {
-        FlowerTime -= 1;
+        if(FlowerTime > 0)
+        {
+            FlowerTime -= 1;
+        }
+        
 
     }
 
