@@ -8,6 +8,7 @@ public class FlowerScript : MonoBehaviour
     //Flower's life timer 
     int FlowerTime = 101;
 
+    bool IsDead = false;
     //Stores a Flower instance's Sprite rendere
     //Temporary while we wait for art
     SpriteRenderer m_SpriteRenderer;
@@ -44,6 +45,7 @@ public class FlowerScript : MonoBehaviour
             case 0:
                 Debug.Log("Dead Flower");
                 m_SpriteRenderer.color = Color.black;
+                IsDead = true;
                 break;
         }
     }
@@ -62,7 +64,11 @@ public class FlowerScript : MonoBehaviour
     //Intended behavior is for the number to tick upwards while the button is held
     public void Rejuvenate()
     {
-        FlowerTime = 100;
+        if(!IsDead)
+        {
+            FlowerTime = 100;
+        }
+        
         //Temporary Behaviour for Rejuvinate during testing
     }
 }
