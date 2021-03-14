@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Create reference to flower game object.
+    //Player rigid body
+    public Rigidbody2D rb;
+    //Player vector used for movement
+    Vector2 movement;
 
-    public Rigidbody2D rb; // The rigid body
-    Vector2 movement;//vector used for movement
+    // Players move speed
+    public float moveSpeed = 5;
+    //Flag for flower range
+    bool inFlowerRange; 
 
-    public float moveSpeed = 5; // Players move speed
-    bool inFlowerRange; //Flag for flower range
-
-    //Temp spaghetti 
     //Stores Current Flower
     GameObject CurrFlower; 
     
@@ -25,14 +26,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("space") && (inFlowerRange == true))
         {
-            Debug.Log("Rejuvinating...");
+            //Log to see if input is recognised
+            Debug.Log("Rejuvenating...");
 
-            CurrFlower.GetComponent<FlowerScript>().Rejuvinate();
-            //CurrFlower.Rejuvinate();
-            //StartCoroutine(FlowerScript.Rejuvinate());
-
-            //Should use something along the lines of... Flower.getcomponent<script>.Function().
-            // run rejuvinate on the flower in contact with 
+            //Targets the collided with flower and runs Rejuvinate 
+            CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
         }
     }
 
@@ -48,11 +46,13 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("In Range");
 
+        //Assigns the collided with flower to the Current Flower var
         CurrFlower = collider.gameObject;
 
         //Displays current flower 
         Debug.Log(CurrFlower);
 
+        //Checks if the player is in the Flower's range
         inFlowerRange = true;
     }
 
@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Left Range");
 
+        //Resets the var for when the player leaves the flower's range
         inFlowerRange = false;
     }
 

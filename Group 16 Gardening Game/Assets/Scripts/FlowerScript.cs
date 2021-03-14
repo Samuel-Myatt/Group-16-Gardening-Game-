@@ -5,12 +5,16 @@ using UnityEngine;
 public class FlowerScript : MonoBehaviour
 {
 
+    //Flower's life timer 
     int FlowerTime = 101;
 
+    //Stores a Flower instance's Sprite rendere
+    //Temporary while we wait for art
     SpriteRenderer m_SpriteRenderer;
 
     void Start()
     {
+        //Grabs a Flower instance's Sprite renderer and assigns to var
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
    
@@ -18,6 +22,8 @@ public class FlowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Switch case for a Flower's life, tracks the flower's states
         switch (FlowerTime)
         {
             case 100:
@@ -44,23 +50,32 @@ public class FlowerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Ticks down a flower's life if not already dead
         if(FlowerTime > 0)
         {
             FlowerTime -= 1;
         }
     }
 
+    //Function to restore a flower's life 
 
-    public void Rejuvinate()
+    //Intended behavior is for the number to tick upwards while the button is held
+    public void Rejuvenate()
     {
         FlowerTime = 100;
         //Temporary Behaviour for Rejuvinate during testing
     }
 }
 
+//TO DO
+
+//Make Flower Count down in seperate function
+
+//This will stop jitter when rejuvenating
+//Overall adds to polish too
+
 
 //Psuedo Code
-
 
 //Update Function 
 
@@ -98,8 +113,3 @@ public class FlowerScript : MonoBehaviour
 //New Function which can be called in Player Script which just ticks up ther flower count 
 
 //Display Flower Time as an UI Element while we wait for art assets 
-
-
-//TO DO LATER 
-
-//(Make Flower Count down in seperate function)
