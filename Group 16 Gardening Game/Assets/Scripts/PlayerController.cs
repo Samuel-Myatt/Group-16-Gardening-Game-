@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5; // Players move speed
     bool inFlowerRange; //Flag for flower range
 
+    //Temp spaghetti 
+    //Stores Current Flower
+    GameObject CurrFlower; 
+    
+
     void Update()
     {
         //GET INPUTS
@@ -22,7 +27,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Rejuvinating...");
 
-
+            CurrFlower.GetComponent<FlowerScript>().Rejuvinate();
+            //CurrFlower.Rejuvinate();
             //StartCoroutine(FlowerScript.Rejuvinate());
 
             //Should use something along the lines of... Flower.getcomponent<script>.Function().
@@ -41,7 +47,11 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("In Range");
-        Debug.Log(collider.gameObject);
+
+        CurrFlower = collider.gameObject;
+
+        //Displays current flower 
+        Debug.Log(CurrFlower);
 
         inFlowerRange = true;
     }
