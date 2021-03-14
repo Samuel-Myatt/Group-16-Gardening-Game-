@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     //Player rigid body
     public Rigidbody2D rb;
+    public Slider plantHealth;
     //Player vector used for movement
     Vector2 movement;
 
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("In Range");
+        plantHealth.gameObject.SetActive(true);
 
         //Assigns the collided with flower to the Current Flower var
         CurrFlower = collider.gameObject;
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
+        plantHealth.gameObject.SetActive(false);
         Debug.Log("Left Range");
 
         //Resets the var for when the player leaves the flower's range

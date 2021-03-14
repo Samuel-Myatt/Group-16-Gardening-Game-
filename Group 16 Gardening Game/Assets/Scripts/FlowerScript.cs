@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlowerScript : MonoBehaviour
 {
-
+    
     //Flower's life timer 
     int FlowerTime = 101;
 
@@ -28,22 +28,22 @@ public class FlowerScript : MonoBehaviour
         switch (FlowerTime)
         {
             case 100:
-                Debug.Log("Normal Flower");
+               // Debug.Log("Normal Flower");
                 m_SpriteRenderer.color = Color.green;
                 break;
 
             case 50:
-                Debug.Log("Warning Flower");
+                //Debug.Log("Warning Flower");
                 m_SpriteRenderer.color = Color.blue;
                 break;
 
             case 30:
-                Debug.Log("Critical Flower");
+                //Debug.Log("Critical Flower");
                 m_SpriteRenderer.color = Color.yellow;
                 break;
 
             case 0:
-                Debug.Log("Dead Flower");
+                //Debug.Log("Dead Flower");
                 m_SpriteRenderer.color = Color.black;
                 IsDead = true;
                 break;
