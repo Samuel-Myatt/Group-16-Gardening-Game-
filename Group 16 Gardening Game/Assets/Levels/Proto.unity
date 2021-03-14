@@ -419,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019462037468882285, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
       propertyPath: m_Name
-      value: 'Flower '
+      value: Flower
       objectReference: {fileID: 0}
     - target: {fileID: 4019462037468882287, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
       propertyPath: m_Size.x
