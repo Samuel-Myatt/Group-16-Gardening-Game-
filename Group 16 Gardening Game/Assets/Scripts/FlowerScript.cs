@@ -8,7 +8,7 @@ public class FlowerScript : MonoBehaviour
     //Flower's life timer 
     int FlowerTime = 101;
 
-    bool IsDead = false;
+    public bool IsDead = false;
     //Stores a Flower instance's Sprite rendere
     //Temporary while we wait for art
     SpriteRenderer m_SpriteRenderer;
