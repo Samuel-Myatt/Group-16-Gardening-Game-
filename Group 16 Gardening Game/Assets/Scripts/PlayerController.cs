@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("In Range");
+        Debug.Log(collider.gameObject);
 
         inFlowerRange = true;
     }
