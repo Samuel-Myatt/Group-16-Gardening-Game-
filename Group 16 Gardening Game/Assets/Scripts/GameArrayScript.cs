@@ -36,7 +36,7 @@ public class GameArrayScript : MonoBehaviour
 
             }
         }
-
+        text.text = (NumberOfFlowers - NumberDead).ToString() + "/" + NumberOfFlowers.ToString();
     }
     //TO DO
     /*
