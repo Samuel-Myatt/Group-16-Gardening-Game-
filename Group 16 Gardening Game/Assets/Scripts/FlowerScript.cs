@@ -51,9 +51,13 @@ public class FlowerScript : MonoBehaviour
     }
 
 
-    public void Rejuvinate()
+    public IEnumerator Rejuvinate()
     {
-        FlowerTime += 5;
+        //Small Delay before rejuvination (Can remove) 
+        yield return new WaitForSeconds(0.1f);
+
+        FlowerTime = 100;
+        //Temporary Behaviour for Rejuvinate during testing
     }
 }
 
