@@ -27,9 +27,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log("In Range");
         if (Input.GetKeyDown("space"))
         {
-            
+            // run rejuvinate on the flower in contact with
         }
     }
 
