@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class FlowerScript : MonoBehaviour
 {
-    
-    //Flower's life timer 
-    int FlowerTime = 101;
 
+    //Flower's life timer 
+    public int FlowerTime = 101;
+
+    public Slider plantHealth;
     public bool IsDead = false;
     //Stores a Flower instance's Sprite rendere
     //Temporary while we wait for art
@@ -17,18 +18,19 @@ public class FlowerScript : MonoBehaviour
     {
         //Grabs a Flower instance's Sprite renderer and assigns to var
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        plantHealth.gameObject.SetActive(false);
     }
-   
+
 
     // Update is called once per frame
     void Update()
     {
-
+        
         //Switch case for a Flower's life, tracks the flower's states
         switch (FlowerTime)
         {
             case 100:
-               // Debug.Log("Normal Flower");
+                // Debug.Log("Normal Flower");
                 m_SpriteRenderer.color = Color.green;
                 break;
 
@@ -52,8 +54,9 @@ public class FlowerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        plantHealth.value = FlowerTime;
         //Ticks down a flower's life if not already dead
-        if(FlowerTime > 0)
+        if (FlowerTime > 0)
         {
             FlowerTime -= 1;
         }
@@ -64,15 +67,24 @@ public class FlowerScript : MonoBehaviour
     //Intended behavior is for the number to tick upwards while the button is held
     public void Rejuvenate()
     {
-        if(!IsDead)
+        if (!IsDead)
         {
             FlowerTime = 100;
         }
-        
+
         //Temporary Behaviour for Rejuvinate during testing
     }
-}
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        plantHealth.gameObject.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        plantHealth.gameObject.SetActive(false);
+    }
+}
 //TO DO
 
 //Make Flower Count down in seperate function
