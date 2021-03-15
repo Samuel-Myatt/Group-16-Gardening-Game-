@@ -23,6 +23,7 @@ public class GameHandler : MonoBehaviour
     //UI Vars 
     public Text FlowerText;
     public Text ClockText;
+    public Text Score;
 
     void Start()
     {

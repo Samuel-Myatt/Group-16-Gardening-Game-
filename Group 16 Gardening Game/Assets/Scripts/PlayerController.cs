@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     // Players move speed
     public float moveSpeed = 5;
+
+    public string statusEffect;
     //Flag for flower range
     bool inFlowerRange; 
 
@@ -20,6 +22,17 @@ public class PlayerController : MonoBehaviour
     
 
     void Update()
+    {
+        StartCoroutine("Movement");
+    }
+
+    void FixedUpdate()
+    {
+        // MOVE PLAYERS
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    IEnumerator Movement()
     {
         //GET INPUTS
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -33,13 +46,9 @@ public class PlayerController : MonoBehaviour
             //Targets the collided with flower and runs Rejuvinate 
             CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
         }
+        yield return null;
     }
 
-    void FixedUpdate()
-    {
-        // MOVE PLAYERS
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-    }
 
 
     //Detects when player enters/exits a flower's range.
@@ -66,5 +75,9 @@ public class PlayerController : MonoBehaviour
         //Resets the var for when the player leaves the flower's range
         inFlowerRange = false;
     }
-
 }
+
+//To do
+
+//On enter and exit flower 
+//Make a Plant's health appear/disappear 
