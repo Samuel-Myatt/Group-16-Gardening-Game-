@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7634333043150139969}
   m_Layer: 0
   m_Name: Flower
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,3 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6d98782c97b5a4cab4c54f80b6c5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDead: 0
