@@ -35,6 +35,7 @@ public class GameHandler : MonoBehaviour
         FindFlowers();
         DontDestroyOnLoad(gameObject);
         NextLevel = CurrentLevel + 1;
+
     }
     // Update is called once per frame
     void Update()
@@ -87,22 +88,24 @@ public class GameHandler : MonoBehaviour
 
         ClockText.text = minutes.ToString() + " : " + seconds.ToString();
     }
-
+    
+    //This doesn't need to run every frame
+    //Convert this function to coroutine which runs as else statement to Clock()
     void ClockCheck()
     {
         if(totalTime <= 0)
         {
             //Timer is up
-            if(NumberOfFlowers - NumberDead) >= FlowersRequired)
+            if((NumberOfFlowers - NumberDead) >= FlowersRequired)
             {
                 //Win the level
                 LoadScene();
             }
             else
             {
-                //Lose the level
+
             }
-            
+            //Lose the level   
         }
     }
 
