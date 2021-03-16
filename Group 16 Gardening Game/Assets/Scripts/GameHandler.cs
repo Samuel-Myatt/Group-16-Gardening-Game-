@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //This Script Handles the game loop
 
@@ -10,10 +11,10 @@ public class GameHandler : MonoBehaviour
 {
 
     //Flower Vars
-    
     private GameObject[] Flowers; //Created GameObject Array Flowers 
     private int NumberOfFlowers; // Number of flowers in total
     private int NumberDead = 0; // Records number of dead flowers
+    public int FlowersRequired;
 
     //Clock Vars
     public float totalTime; // the timer length
@@ -25,17 +26,22 @@ public class GameHandler : MonoBehaviour
     public Text ClockText;
     public Text Score;
 
+    //Level Loader Vars
+    public int CurrentLevel;
+    private int NextLevel;
+
     void Start()
     {
         FindFlowers();
-
+        DontDestroyOnLoad(gameObject);
+        NextLevel = CurrentLevel + 1;
     }
     // Update is called once per frame
     void Update()
     {
         Clock();
         FlowerCheck();
-
+        ClockCheck();
     }
 
 
@@ -71,7 +77,10 @@ public class GameHandler : MonoBehaviour
 
     void Clock()
     {
-        totalTime -= Time.deltaTime; // reduce timer
+        if (totalTime != 0)
+        {
+            totalTime -= Time.deltaTime; // reduce timer
+        }
 
         minutes = (int)(totalTime / 60);
         seconds = (int)(totalTime % 60);
@@ -79,6 +88,30 @@ public class GameHandler : MonoBehaviour
         ClockText.text = minutes.ToString() + " : " + seconds.ToString();
     }
 
+    void ClockCheck()
+    {
+        if(totalTime <= 0)
+        {
+            //Timer is up
+            if(NumberOfFlowers - NumberDead) >= FlowersRequired)
+            {
+                //Win the level
+                LoadScene();
+            }
+            else
+            {
+                //Lose the level
+            }
+            
+        }
+    }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene(NextLevel);
+        CurrentLevel = NextLevel;
+        NextLevel++;
+    }
     //TO DO
     /*
      * Format out Number of flowers minus the number of dead out of number of flowers, so (3/6)
