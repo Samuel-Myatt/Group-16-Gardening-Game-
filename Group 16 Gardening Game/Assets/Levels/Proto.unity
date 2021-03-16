@@ -3663,6 +3663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1709532802}
   - component: {fileID: 1709532801}
+  - component: {fileID: 1709532803}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -3682,10 +3683,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568fb0ea5a7f8b44a869cf11458adcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 0
+  FlowersRequired: 1
+  totalTime: 3
   FlowerText: {fileID: 661399956}
   ClockText: {fileID: 2135095626}
   Score: {fileID: 0}
+  CurrentLevel: 0
 --- !u!4 &1709532802
 Transform:
   m_ObjectHideFlags: 0
@@ -3700,6 +3703,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709532803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709532800}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b91aa484db3ec4da637e4cc8f356b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentLevel: 0
+  NextLevel: 0
 --- !u!114 &1716961473 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6553725897333803503, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
