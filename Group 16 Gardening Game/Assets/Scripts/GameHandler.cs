@@ -68,7 +68,7 @@ public class GameHandler : MonoBehaviour
         {
             if (Dead.GetComponent<FlowerScript>().IsDead)// get the IsDead variable from the current flower
             {
-                Debug.Log(NumberDead.ToString());// debug
+                //Debug.Log(NumberDead.ToString());// debug
                 NumberDead++;//increase number of dead
 
             }

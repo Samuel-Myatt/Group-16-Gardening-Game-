@@ -6,16 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     //Player rigid body
     public Rigidbody2D rb;
+    public Animator animator;
     
     //Player vector used for movement
     Vector2 movement;
+    Vector2 moveDir;
+    Vector2 prevDir;
 
     // Players move speed
-    public float moveSpeed = 5;
+    public float moveSpeed = 5.0f;
 
     public string statusEffect;
     //Flag for flower range
-    bool inFlowerRange; 
+    bool inFlowerRange;
+
+   
 
     //Stores Current Flower
     GameObject CurrFlower; 
@@ -24,12 +29,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         StartCoroutine("Movement");
+        Animate();
     }
 
     void FixedUpdate()
     {
         // MOVE PLAYERS
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        
+
+        
     }
 
     IEnumerator Movement()
@@ -37,6 +46,12 @@ public class PlayerController : MonoBehaviour
         //GET INPUTS
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        moveDir = new Vector2(movement.x, movement.y).normalized;
+
+        if ((movement.x == 0 && movement.y == 0) && moveDir.x != 0 || moveDir.y != 0)
+        {
+            prevDir = moveDir;
+        }
 
         if (Input.GetKeyDown("space") && (inFlowerRange == true))
         {
@@ -75,6 +90,14 @@ public class PlayerController : MonoBehaviour
 
         //Resets the var for when the player leaves the flower's range
         inFlowerRange = false;
+    }
+    void Animate()
+    {
+        animator.SetFloat("AnimMoveX", movement.x);
+        animator.SetFloat("AnimMoveY", movement.y);
+        animator.SetFloat("AnimMoveForce", movement.magnitude);
+        animator.SetFloat("PrevMoveX", prevDir.x);
+        animator.SetFloat("PrevMoveY", prevDir.y);
     }
 }
 

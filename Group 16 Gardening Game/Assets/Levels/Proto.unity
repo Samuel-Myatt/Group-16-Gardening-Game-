@@ -123,6 +123,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &63763260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2280598334712940583, guid: d2a6d33ed4b5c3f4ea20c0d941c2759b, type: 3}
+  m_PrefabInstance: {fileID: 8698130498627230046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &63763267
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63763260}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3152689d7ebbbf34d92be9b12fa34fdc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &70102548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,8 +3739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b91aa484db3ec4da637e4cc8f356b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLevel: 0
-  NextLevel: 0
 --- !u!114 &1716961473 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6553725897333803503, guid: 1aa4d5c011b00f44285f41a2d9228e34, type: 3}
@@ -4396,6 +4418,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2280598334712940579, guid: d2a6d33ed4b5c3f4ea20c0d941c2759b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 63763267}
     - target: {fileID: 2280598334712940579, guid: d2a6d33ed4b5c3f4ea20c0d941c2759b, type: 3}
       propertyPath: plantHealth
       value: 
