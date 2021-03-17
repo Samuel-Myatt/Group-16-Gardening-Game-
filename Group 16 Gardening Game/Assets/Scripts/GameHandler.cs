@@ -84,7 +84,7 @@ public class GameHandler : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ClockCheck())
+            StartCoroutine(ClockCheck());
         }
 
         minutes = (int)(totalTime / 60);
