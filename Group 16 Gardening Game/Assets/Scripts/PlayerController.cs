@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        StartCoroutine("Movement");
+        //StartCoroutine("Movement");
+        Movement();
         Animate();
     }
 
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    IEnumerator Movement()
+    void Movement()
     {
         //GET INPUTS
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -50,7 +51,9 @@ public class PlayerController : MonoBehaviour
 
         if ((movement.x == 0 && movement.y == 0) && moveDir.x != 0 || moveDir.y != 0)
         {
-            prevDir = moveDir;
+            prevDir.x = moveDir.x;
+            prevDir.y = moveDir.y;
+
         }
 
         if (Input.GetKeyDown("space") && (inFlowerRange == true))
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
             //Targets the collided with flower and runs Rejuvinate 
             CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
         }
-        yield return null;
+        
     }
 
 
