@@ -42,7 +42,7 @@ public class GameHandler : MonoBehaviour
     {
         Clock();
         FlowerCheck();
-        ClockCheck();
+       // ClockCheck();
     }
 
 
@@ -78,20 +78,43 @@ public class GameHandler : MonoBehaviour
 
     void Clock()
     {
-        if (totalTime != 0)
+        if (totalTime >= 0)
         {
             totalTime -= Time.deltaTime; // reduce timer
+        }
+        else
+        {
+            StartCoroutine(ClockCheck())
         }
 
         minutes = (int)(totalTime / 60);
         seconds = (int)(totalTime % 60);
 
         ClockText.text = minutes.ToString() + " : " + seconds.ToString();
+
     }
-    
-    //This doesn't need to run every frame
-    //Convert this function to coroutine which runs as else statement to Clock()
-    void ClockCheck()
+
+
+    IEnumerator ClockCheck()
+    {
+
+        if((NumberOfFlowers - NumberDead) >= FlowersRequired)
+            {
+                //Win the level
+                LoadScene();
+            }
+            else
+            {
+
+            }
+            //Lose the level   
+
+        yield return null; 
+    }
+
+    //ORIGINAL CLOCK CHECK
+
+    /*void ClockCheck()
     {
         if(totalTime <= 0)
         {
@@ -108,6 +131,7 @@ public class GameHandler : MonoBehaviour
             //Lose the level   
         }
     }
+    */
 
     void LoadScene()
     {
@@ -115,6 +139,7 @@ public class GameHandler : MonoBehaviour
         CurrentLevel = NextLevel;
         NextLevel++;
     }
+
     //TO DO
     /*
      * Format out Number of flowers minus the number of dead out of number of flowers, so (3/6)
