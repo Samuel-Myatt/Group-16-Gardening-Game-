@@ -9,6 +9,9 @@ public class FlowerScript : MonoBehaviour
     public int FlowerTime = 101;
 
     public Slider plantHealth;
+    public Animator anim;
+   
+
     public bool IsDead = false;
     //Stores a Flower instance's Sprite rendere
     //Temporary while we wait for art
@@ -31,22 +34,27 @@ public class FlowerScript : MonoBehaviour
         {
             case 100:
                 // Debug.Log("Normal Flower");
-                m_SpriteRenderer.color = Color.green;
+                
+
                 break;
 
             case 50:
+                anim.SetBool("3Petals", true);
                 //Debug.Log("Warning Flower");
-                m_SpriteRenderer.color = Color.blue;
+                //m_SpriteRenderer.color = Color.blue;
                 break;
 
+
             case 30:
+                anim.SetBool("2Petals", true);
                 //Debug.Log("Critical Flower");
-                m_SpriteRenderer.color = Color.yellow;
+                //m_SpriteRenderer.color = Color.yellow;
                 break;
 
             case 0:
+                anim.SetBool("1Petal", true);
                 //Debug.Log("Dead Flower");
-                m_SpriteRenderer.color = Color.black;
+                //m_SpriteRenderer.color = Color.black;
                 IsDead = true;
                 break;
         }
