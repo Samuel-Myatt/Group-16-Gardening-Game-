@@ -13,18 +13,17 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDir;
     Vector2 prevDir;
 
-    // Players move speed
+    //Player Game Vars
     public float moveSpeed = 5.0f;
-
     public string statusEffect;
+    public Vector2 playerPos;
+
     //Flag for flower range
     bool inFlowerRange;
-
-   
-
     //Stores Current Flower
-    GameObject CurrFlower; 
-    
+    GameObject CurrFlower;
+    //Plant healthbar
+    public Slider plantHealth;
 
     void Update()
     {
@@ -37,9 +36,16 @@ public class PlayerController : MonoBehaviour
     {
         // MOVE PLAYERS
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        
 
-        
+        //Updates PlantHealth Position independant of functions 
+        //(Mostly stops glitchy behaviour)
+
+        plantHealth.transform.position = playerPos; 
+
+        if (inFlowerRange == true)
+        {
+            PlantHealth();
+        }
     }
 
     void Movement()
@@ -67,33 +73,44 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void PlantHealth()
+    {
+        //Grabs current flower's hp each frame
+        plantHealth.value = CurrFlower.GetComponent<FlowerScript>().FlowerTime;
+        playerPos = this.transform.position;
+        //Add Y offset if possible
+    }
 
 
     //Detects when player enters/exits a flower's range.
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("In Range");
+        //Checks if the player is in the Flower's range
+        inFlowerRange = true;
 
-        
+        Debug.Log("In Range");
         //Assigns the collided with flower to the Current Flower var
         CurrFlower = collider.gameObject;
 
-       
         //Displays current flower 
         Debug.Log(CurrFlower);
 
-        //Checks if the player is in the Flower's range
-        inFlowerRange = true;
+        //Enable Plant Healthbar
+        plantHealth.gameObject.SetActive(true);
+
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-       
+        //Disable health bar
+        plantHealth.gameObject.SetActive(false);
+
         Debug.Log("Left Range");
 
         //Resets the var for when the player leaves the flower's range
         inFlowerRange = false;
     }
+
     void Animate()
     {
         animator.SetFloat("AnimMoveX", movement.x);
@@ -103,8 +120,3 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("PrevMoveY", prevDir.y);
     }
 }
-
-//To do
-
-//On enter and exit flower 
-//Make a Plant's health appear/disappear 

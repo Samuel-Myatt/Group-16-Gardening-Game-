@@ -8,7 +8,6 @@ public class FlowerScript : MonoBehaviour
     //Flower's life timer 
     public int FlowerTime = 101;
 
-    public Slider plantHealth;
     public Animator anim;
    
 
@@ -21,7 +20,6 @@ public class FlowerScript : MonoBehaviour
     {
         //Grabs a Flower instance's Sprite renderer and assigns to var
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        plantHealth.gameObject.SetActive(false);
     }
 
 
@@ -62,7 +60,6 @@ public class FlowerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        plantHealth.value = FlowerTime;
         //Ticks down a flower's life if not already dead
         if (FlowerTime > 0)
         {
@@ -81,16 +78,6 @@ public class FlowerScript : MonoBehaviour
         }
 
         //Temporary Behaviour for Rejuvinate during testing
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        plantHealth.gameObject.SetActive(true);
-    }
-
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        plantHealth.gameObject.SetActive(false);
     }
 }
 //TO DO
