@@ -20,9 +20,10 @@ public class PlayerController : MonoBehaviour
     public string statusEffect;
     //Flag for flower range
     bool inFlowerRange;
-    public bool hasCan;
-    public bool hasFertilizer;
+    public bool hasCan = false;
+    public bool hasFertilizer = false;
     GameObject WateringCan;
+    GameObject Fertalizer;
    
 
     //Stores Current Flower
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         WateringCan = GameObject.FindWithTag("WaterCan");
+        Fertalizer = GameObject.FindWithTag("Fertalizer");
     }
     void Update()
     {
@@ -69,18 +71,35 @@ public class PlayerController : MonoBehaviour
             //Log to see if input is recognised
             Debug.Log("Rejuvenating...");
 
-            //Targets the collided with flower and runs Rejuvinate 
-            CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
+            //Targets the collided with flower and runs Rejuvinate
+        
+            // Detects what kind of flower the player has ran into
+            if (CurrFlower.tag == "Flower"&& hasCan)
+            {
+                CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
+            }
+            if (CurrFlower.tag == "FertFlower" && hasFertilizer)
+            {
+                CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
+            }
         }
         
     }
     void DropCan()
     {
+        // drops the current item you have equiped
         if (WateringCan== true && Input.GetKey(KeyCode.Q))
         {
             hasCan = false;
             WateringCan.SetActive(true);
             WateringCan.transform.parent = null;
+
+        }
+        if (Fertalizer == true && Input.GetKey(KeyCode.Q))
+        {
+            hasFertilizer = false;
+            Fertalizer.SetActive(true);
+            Fertalizer.transform.parent = null;
 
         }
     }
@@ -106,6 +125,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collider)
     {
+        // player can equip watering can
         if (collider.gameObject.tag == "WaterCan" && !hasCan)
         {
             if (Input.GetKey(KeyCode.E))
@@ -114,6 +134,19 @@ public class PlayerController : MonoBehaviour
                 WateringCan.transform.parent = gameObject.transform;
                 WateringCan.SetActive(false);
                 hasCan = true;
+
+            }
+
+        }
+        // player can equip fertalizer
+        if (collider.gameObject.tag == "Fertalizer" && !hasFertilizer)
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Pickup");
+                Fertalizer.transform.parent = gameObject.transform;
+                Fertalizer.SetActive(false);
+                hasFertilizer = true;
 
             }
 

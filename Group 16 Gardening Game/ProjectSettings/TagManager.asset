@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Flower
   - WaterCan
+  - FertFlower
+  - Fertalizer
   layers:
   - Default
   - TransparentFX

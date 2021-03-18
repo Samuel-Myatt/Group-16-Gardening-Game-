@@ -79,14 +79,12 @@ public class FlowerScript : MonoBehaviour
 
     //Intended behavior is for the number to tick upwards while the button is held
     public void Rejuvenate()
-    {
-        if (this.tag == "Flower")
+    {   if (!IsDead )
+
         {
-            if (!IsDead)
-            {
-                FlowerTime = 100;
-            }
+         FlowerTime = 100;
         }
+        
 
         //Temporary Behaviour for Rejuvinate during testing
     }
