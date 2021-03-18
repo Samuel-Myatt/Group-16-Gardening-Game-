@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2280598334712940580}
   m_Layer: 0
   m_Name: 'Player '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2280598334712940576}
+  animator: {fileID: 0}
+  WateringCan: {fileID: 586174330021666315, guid: 287f78c2f0475514693a50e6c4f61abd, type: 3}
   moveSpeed: 5
+  statusEffect: 
+  hasCan: 0
+  hasFertilizer: 0
 --- !u!61 &2280598334712940581
 BoxCollider2D:
   m_ObjectHideFlags: 0
