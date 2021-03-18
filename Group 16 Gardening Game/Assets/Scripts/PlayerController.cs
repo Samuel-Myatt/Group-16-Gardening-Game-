@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;
     Vector2 moveDir;
     Vector2 prevDir;
+    
 
     // Players move speed
     public float moveSpeed = 5.0f;
@@ -19,18 +20,25 @@ public class PlayerController : MonoBehaviour
     public string statusEffect;
     //Flag for flower range
     bool inFlowerRange;
-
+    public bool hasCan;
+    public bool hasFertilizer;
+    GameObject WateringCan;
    
 
     //Stores Current Flower
-    GameObject CurrFlower; 
-    
+    GameObject CurrFlower;
 
+    private void Start()
+    {
+        WateringCan = GameObject.FindWithTag("WaterCan");
+    }
     void Update()
     {
         //StartCoroutine("Movement");
         Movement();
         Animate();
+        DropCan();
+
     }
 
     void FixedUpdate()
@@ -66,13 +74,23 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    void DropCan()
+    {
+        if (WateringCan== true && Input.GetKey(KeyCode.Q))
+        {
+            hasCan = false;
+            WateringCan.SetActive(true);
+            WateringCan.transform.parent = null;
+
+        }
+    }
 
 
 
     //Detects when player enters/exits a flower's range.
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("In Range");
+        //Debug.Log("In Range");
 
         
         //Assigns the collided with flower to the Current Flower var
@@ -84,8 +102,23 @@ public class PlayerController : MonoBehaviour
 
         //Checks if the player is in the Flower's range
         inFlowerRange = true;
+        
     }
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "WaterCan" && !hasCan)
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Pickup");
+                WateringCan.transform.parent = gameObject.transform;
+                WateringCan.SetActive(false);
+                hasCan = true;
 
+            }
+
+        }
+    }
     private void OnTriggerExit2D(Collider2D collider)
     {
        

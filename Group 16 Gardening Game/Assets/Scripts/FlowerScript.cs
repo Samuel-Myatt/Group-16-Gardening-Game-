@@ -7,6 +7,7 @@ public class FlowerScript : MonoBehaviour
 
     //Flower's life timer 
     public int FlowerTime = 101;
+    public GameObject playerCharacter;
 
     public Slider plantHealth;
     public Animator anim;
@@ -16,12 +17,16 @@ public class FlowerScript : MonoBehaviour
     //Stores a Flower instance's Sprite rendere
     //Temporary while we wait for art
     SpriteRenderer m_SpriteRenderer;
+    PlayerController player;
+   
 
     void Start()
     {
         //Grabs a Flower instance's Sprite renderer and assigns to var
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         plantHealth.gameObject.SetActive(false);
+        player = GetComponent<PlayerController>();
+        
     }
 
 
@@ -75,9 +80,12 @@ public class FlowerScript : MonoBehaviour
     //Intended behavior is for the number to tick upwards while the button is held
     public void Rejuvenate()
     {
-        if (!IsDead)
+        if (this.tag == "Flower")
         {
-            FlowerTime = 100;
+            if (!IsDead)
+            {
+                FlowerTime = 100;
+            }
         }
 
         //Temporary Behaviour for Rejuvinate during testing

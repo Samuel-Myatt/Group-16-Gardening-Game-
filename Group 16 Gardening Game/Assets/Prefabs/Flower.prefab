@@ -229,10 +229,6 @@ MonoBehaviour:
   FlowerTime: 101
   plantHealth: {fileID: 0}
   anim: {fileID: 260216237645691410}
-  full: {fileID: 0}
-  almostAlive: {fileID: 0}
-  almostDead: {fileID: 0}
-  dead: {fileID: 0}
   IsDead: 0
 --- !u!95 &260216237645691410
 Animator:
