@@ -29,6 +29,9 @@ public class GameHandler : MonoBehaviour
     //Level Loader Vars
     public int CurrentLevel;
     private int NextLevel;
+    public static bool GameIsOver;
+    public GameObject EndMenuUIWin;
+    public GameObject EndMenuUILose;
 
     void Start()
     {
@@ -99,16 +102,19 @@ public class GameHandler : MonoBehaviour
     {
 
         if((NumberOfFlowers - NumberDead) >= FlowersRequired)
-            {
-                //Win the level
-                LoadScene();
-            }
-            else
-            {
-
-            }
-            //Lose the level   
-
+        {
+            //Win the level
+            EndMenuUIWin.SetActive(true);
+           // Time.timeScale = 0f;
+            //LoadScene();
+        }
+        else
+        {
+            //Lose the level
+            EndMenuUILose.SetActive(true);
+            //Time.timeScale = 0f;
+            //LoadScene();
+        }  
         yield return null; 
     }
 
@@ -133,11 +139,17 @@ public class GameHandler : MonoBehaviour
     }
     */
 
-    void LoadScene()
+    public void LoadScene()
     {
         SceneManager.LoadScene(NextLevel);
         CurrentLevel = NextLevel;
         NextLevel++;
+    }
+
+    public void ReLoadScene()
+    {
+        
+        SceneManager.LoadScene(CurrentLevel);
     }
 
     //TO DO

@@ -6,7 +6,7 @@ public class FlowerScript : MonoBehaviour
 {
 
     //Flower's life timer
-    public int FlowerTime = 101;
+    public int FlowerTime = 1000;
     public GameObject playerCharacter;
 
     public Animator anim;
@@ -35,20 +35,20 @@ public class FlowerScript : MonoBehaviour
         //Switch case for a Flower's life, tracks the flower's states
         switch (FlowerTime)
         {
-            case 100:
+            case 1000:
                 // Debug.Log("Normal Flower");
 
 
                 break;
 
-            case 50:
+            case 500:
                 anim.SetBool("3Petals", true);
                 //Debug.Log("Warning Flower");
                 //m_SpriteRenderer.color = Color.blue;
                 break;
 
 
-            case 30:
+            case 300:
                 anim.SetBool("2Petals", true);
                 //Debug.Log("Critical Flower");
                 //m_SpriteRenderer.color = Color.yellow;
@@ -79,7 +79,7 @@ public class FlowerScript : MonoBehaviour
     {   if (!IsDead )
 
         {
-         FlowerTime = 100;
+         FlowerTime +=  100;
         }
 
 

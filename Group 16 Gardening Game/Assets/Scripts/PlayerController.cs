@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
         {
             PlantHealth();
         }
+        else 
+        {
+            plantHealth.gameObject.SetActive(false);
+        }
     }
 
     void Movement()
@@ -127,23 +131,27 @@ public class PlayerController : MonoBehaviour
     //Detects when player enters/exits a flower's range.
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        //Checks if the player is in the Flower's range
-        inFlowerRange = true;
-        //Debug.Log("In Range");
+        if(collider.gameObject.tag == "Flower")
+        {
+            //Checks if the player is in the Flower's range
+            //inFlowerRange = true;
+            //Debug.Log("In Range");
 
-        Debug.Log("In Range");
-        //Assigns the collided with flower to the Current Flower var
-        CurrFlower = collider.gameObject;
+            Debug.Log("In Range");
+            //Assigns the collided with flower to the Current Flower var
+            CurrFlower = collider.gameObject;
 
-        //Displays current flower
-        Debug.Log(CurrFlower);
+            //Displays current flower
+            Debug.Log(CurrFlower);
 
-        //Enable Plant Healthbar
-        plantHealth.gameObject.SetActive(true);
+            //Enable Plant Healthbar
+            plantHealth.gameObject.SetActive(true);
 
-        plantPos = CurrFlower.transform.position;
+            plantPos = CurrFlower.transform.position;
 
-        plantHealth.transform.position = plantPos;
+            plantHealth.transform.position = plantPos;
+        }
+        
 
 
     }
@@ -175,17 +183,22 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+        inFlowerRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        //Disable health bar
-        plantHealth.gameObject.SetActive(false);
+        if (collider.gameObject.tag == "Flower")
+        {
+            //Disable health bar
+            
 
-        Debug.Log("Left Range");
+            Debug.Log("Left Range");
 
-        //Resets the var for when the player leaves the flower's range
-        inFlowerRange = false;
+            //Resets the var for when the player leaves the flower's range
+            inFlowerRange = false;
+        }
+        
     }
 
     void Animate()
