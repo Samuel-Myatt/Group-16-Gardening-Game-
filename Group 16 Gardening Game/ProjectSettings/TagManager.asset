@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Flower
+  - WaterCan
+  - FertFlower
+  - Fertalizer
   layers:
   - Default
   - TransparentFX

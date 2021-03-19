@@ -144,7 +144,7 @@ public class GameHandler : MonoBehaviour
     /*
      * Format out Number of flowers minus the number of dead out of number of flowers, so (3/6)
      * 
-     * Display formated text out to a text object
+     * Dis.y formated text out to a text object
      * 
      * code cleaning
      * 
