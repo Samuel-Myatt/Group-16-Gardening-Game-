@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     //Player Game Vars
     public float moveSpeed = 5.0f;
     public string statusEffect;
-    public Vector2 playerPos;
+    public Vector2 plantPos;
 
     //Flag for flower range
     bool inFlowerRange;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         //Updates PlantHealth Position independant of functions
         //(Mostly stops glitchy behaviour)
 
-        plantHealth.transform.position = playerPos;
+        
 
         if (inFlowerRange == true)
         {
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         //Grabs current flower's hp each frame
         plantHealth.value = CurrFlower.GetComponent<FlowerScript>().FlowerTime;
-        playerPos = this.transform.position;
+        
         //Add Y offset if possible
     }
 
@@ -140,6 +140,10 @@ public class PlayerController : MonoBehaviour
 
         //Enable Plant Healthbar
         plantHealth.gameObject.SetActive(true);
+
+        plantPos = CurrFlower.transform.position;
+
+        plantHealth.transform.position = plantPos;
 
 
     }
