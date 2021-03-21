@@ -70,9 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2280598334712940576}
   animator: {fileID: 0}
-  WateringCan: {fileID: 586174330021666315, guid: 287f78c2f0475514693a50e6c4f61abd, type: 3}
   moveSpeed: 5
-  statusEffect: 
+  plantPos: {x: 0, y: 0}
+  plantHealth: {fileID: 0}
   hasCan: 0
   hasFertilizer: 0
 --- !u!61 &2280598334712940581
@@ -99,7 +99,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!61 &2280598334712940578
 BoxCollider2D:
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01044929, y: 0.02089858}
+  m_Offset: {x: 0.01044929, y: -0.026922137}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,7 +125,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1462905, y: 1.1253917}
+  m_Size: {x: 0.44902188, y: 1.0297503}
   m_EdgeRadius: 0
 --- !u!212 &2280598334712940580
 SpriteRenderer:
