@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6d98782c97b5a4cab4c54f80b6c5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlowerTime: 101
+  FlowerTime: 1000
   playerCharacter: {fileID: 0}
   anim: {fileID: 260216237645691410}
   IsDead: 0
