@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         //StartCoroutine("Movement");
         Movement();
         Animate();
-        DropCan();
+        //DropCan();
 
     }
 
@@ -87,20 +87,21 @@ public class PlayerController : MonoBehaviour
             //Log to see if input is recognised
             Debug.Log("Rejuvenating...");
 
+            CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
             //Targets the collided with flower and runs Rejuvinate
 
             // Detects what kind of flower the player has ran into
-            if (CurrFlower.tag == "Flower"&& hasCan)
-            {
-                CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
+            /* if (CurrFlower.tag == "Flower"&& hasCan)
+             {
+                 CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
 
-                //Play watering sound. Saul 13:56 21/03/21
-                FindObjectOfType<AudioManager>().Play("Watering");
-            }
-            if (CurrFlower.tag == "FertFlower" && hasFertilizer)
-            {
-                CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
-            }
+                 //Play watering sound. Saul 13:56 21/03/21
+                 FindObjectOfType<AudioManager>().Play("Watering");
+             }
+             if (CurrFlower.tag == "FertFlower" && hasFertilizer)
+             {
+                 CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
+             } */
         }
 
     }

@@ -36,6 +36,7 @@ public class GameHandler : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         FindFlowers();
         DontDestroyOnLoad(gameObject);
         NextLevel = CurrentLevel + 1;
@@ -46,7 +47,14 @@ public class GameHandler : MonoBehaviour
     {
         Clock();
         FlowerCheck();
-       // ClockCheck();
+        ClockCheck();
+        if ((NumberOfFlowers - NumberDead) < FlowersRequired)
+        {
+            //Win the level
+            EndMenuUILose.SetActive(true);
+            Time.timeScale = 0f;
+            //LoadScene();
+        }
     }
 
 
@@ -106,14 +114,14 @@ public class GameHandler : MonoBehaviour
         {
             //Win the level
             EndMenuUIWin.SetActive(true);
-           // Time.timeScale = 0f;
+            Time.timeScale = 0f;
             //LoadScene();
         }
         else
         {
             //Lose the level
             EndMenuUILose.SetActive(true);
-            //Time.timeScale = 0f;
+            Time.timeScale = 0f;
             //LoadScene();
         }  
         yield return null; 
