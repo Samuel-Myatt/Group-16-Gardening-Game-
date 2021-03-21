@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     {
         WateringCan = GameObject.FindWithTag("WaterCan");
         Fertalizer = GameObject.FindWithTag("Fertalizer");
+
+        //Play song. Saul 14:04 21/03/21
+        FindObjectOfType<AudioManager>().Play("Song");
     }
     void Update()
     {
@@ -92,6 +95,9 @@ public class PlayerController : MonoBehaviour
             if (CurrFlower.tag == "Flower"&& hasCan)
             {
                 CurrFlower.GetComponent<FlowerScript>().Rejuvenate();
+
+                //Play watering sound. Saul 13:56 21/03/21
+                FindObjectOfType<AudioManager>().Play("Watering");
             }
             if (CurrFlower.tag == "FertFlower" && hasFertilizer)
             {
@@ -167,6 +173,9 @@ public class PlayerController : MonoBehaviour
                 WateringCan.SetActive(false);
                 hasCan = true;
 
+                //Play song. Saul 14:12 21/03/21
+                FindObjectOfType<AudioManager>().Play("Select");
+
             }
 
         }
@@ -179,6 +188,9 @@ public class PlayerController : MonoBehaviour
                 Fertalizer.transform.parent = gameObject.transform;
                 Fertalizer.SetActive(false);
                 hasFertilizer = true;
+
+                //Play song. Saul 14:12 21/03/21
+                FindObjectOfType<AudioManager>().Play("Select");
 
             }
 
