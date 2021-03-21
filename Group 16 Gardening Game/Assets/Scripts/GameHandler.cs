@@ -24,6 +24,7 @@ public class GameHandler : MonoBehaviour
     //UI Vars 
     public Text FlowerText;
     public Text ClockText;
+    public Text StunText;
     public Text Score;
 
     //Level Loader Vars

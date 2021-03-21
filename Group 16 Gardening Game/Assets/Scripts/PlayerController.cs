@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     //Player rigid body
@@ -13,10 +14,8 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDir;
     Vector2 prevDir;
 
-
     //Player Game Vars
     public float moveSpeed = 5.0f;
-    public string statusEffect;
     public Vector2 plantPos;
 
     //Flag for flower range
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour
     public bool hasFertilizer = false;
     GameObject WateringCan;
     GameObject Fertalizer;
-
 
     //Stores Current Flower
     GameObject CurrFlower;
@@ -106,6 +104,20 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public IEnumerator stunPlayer(float duration)
+    {
+        Debug.Log("Stunned!");
+        this.moveSpeed = 0f;
+
+
+        yield return new WaitForSeconds(duration);
+
+
+        this.moveSpeed = 5.0f;
+
+    }
+
     void DropCan()
     {
         // drops the current item you have equiped
