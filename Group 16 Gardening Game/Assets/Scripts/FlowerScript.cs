@@ -37,36 +37,25 @@ public class FlowerScript : MonoBehaviour
         {
             case 1000:
                 // Debug.Log("Normal Flower");
-                anim.SetBool("1Petal", false);
-                anim.SetBool("2Petals", false);
-                anim.SetBool("3Petals", false);
-                anim.SetBool("4Petals", true);
+
+
                 break;
 
-            case 666:
-                anim.SetBool("1Petal", false);
-                anim.SetBool("2Petals", false);
+            case 500:
                 anim.SetBool("3Petals", true);
-                anim.SetBool("4Petals", false);
                 //Debug.Log("Warning Flower");
                 //m_SpriteRenderer.color = Color.blue;
                 break;
 
 
-            case 333:
+            case 300:
                 anim.SetBool("2Petals", true);
-                anim.SetBool("3Petals", false);
-                anim.SetBool("1Petal", false);
-                anim.SetBool("4Petals", false);
                 //Debug.Log("Critical Flower");
                 //m_SpriteRenderer.color = Color.yellow;
                 break;
 
             case 0:
                 anim.SetBool("1Petal", true);
-                anim.SetBool("2Petals", false);
-                anim.SetBool("3Petals", false);
-                anim.SetBool("4Petals", false);
                 //Debug.Log("Dead Flower");
                 //m_SpriteRenderer.color = Color.black;
                 IsDead = true;
@@ -87,7 +76,7 @@ public class FlowerScript : MonoBehaviour
 
     //Intended behavior is for the number to tick upwards while the button is held
     public void Rejuvenate()
-    {   if (!IsDead && FlowerTime < 1000)
+    {   if (!IsDead )
 
         {
          FlowerTime +=  100;
