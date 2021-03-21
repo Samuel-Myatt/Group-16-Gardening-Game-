@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         Fertalizer = GameObject.FindWithTag("Fertalizer");
 
         //Play song. Saul 14:04 21/03/21
-        //FindObjectOfType<AudioManager>().Play("Song");
+        FindObjectOfType<AudioManager>().Play("Song");
     }
     void Update()
     {
@@ -111,16 +111,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Stunned!");
         this.moveSpeed = 0f;
 
-        animator.Play("stun");
-
 
         yield return new WaitForSeconds(duration);
 
-        
-
 
         this.moveSpeed = 5.0f;
-        
+
     }
 
     void DropCan()
