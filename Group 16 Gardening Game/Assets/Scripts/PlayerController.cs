@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("space") && (inFlowerRange == true))
         {
+            animator.Play("Watering");
+
             //Log to see if input is recognised
             Debug.Log("Rejuvenating...");
 
@@ -111,6 +113,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Stunned!");
         this.moveSpeed = 0f;
 
+        animator.Play("stun");
 
         yield return new WaitForSeconds(duration);
 
